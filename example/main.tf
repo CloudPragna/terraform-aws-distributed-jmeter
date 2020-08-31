@@ -7,3 +7,10 @@ module "jmeter" {
   cidr_blocks   = ["10.101.0.0/16"]
   vpc_id        = "vpc-0c0aef4acc92bf793"
 }
+
+module "load_test" {
+  source = "../modules/load-test"
+  source = []
+  host = module.jmeter.master_ip[0]
+  private_key = module.jmeter.private_key
+}
