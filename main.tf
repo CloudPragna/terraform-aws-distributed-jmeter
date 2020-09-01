@@ -63,4 +63,6 @@ module "load_test" {
   host        = module.jmeter_master.master_ip[0]
   private_key = tls_private_key.this.private_key_pem
   slave_ips   = join(",", module.jmeter_slave.slave_ips)
+  user        = var.user
+  port        = var.port
 }

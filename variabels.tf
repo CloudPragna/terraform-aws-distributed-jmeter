@@ -48,3 +48,18 @@ variable "source_jmx" {
 
   ]
 }
+
+
+## For remtoe exex 
+
+variable "user" {
+  type        = string
+  description = "description"
+  default     = "ec2-user"
+}
+
+variable "port" {
+  type        = number
+  description = "description"
+  default     = 22
+}
