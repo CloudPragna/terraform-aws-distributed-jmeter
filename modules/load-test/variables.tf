@@ -1,4 +1,4 @@
-variable "source" {
+variable "source_jmx" {
   type        = list
   description = "description"
   default     = [
@@ -24,6 +24,11 @@ variable "port" {
 }
 
 variable "private_key" {
+  type        = string
+  description = "description"
+}
+
+variable "slave_ips" {
   type        = string
   description = "description"
 }

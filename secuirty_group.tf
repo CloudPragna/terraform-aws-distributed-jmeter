@@ -18,6 +18,13 @@ resource "aws_security_group" "jmeter" {
     protocol    = "tcp"
     cidr_blocks = var.cidr_blocks
   }
+  ingress {
+    description = "port 22"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 
   ingress {
     description = "port 22"
@@ -25,6 +32,14 @@ resource "aws_security_group" "jmeter" {
     to_port     = 80
     protocol    = "tcp"
     cidr_blocks = var.cidr_blocks
+  }
+
+  ingress {
+    description = "port 22"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {

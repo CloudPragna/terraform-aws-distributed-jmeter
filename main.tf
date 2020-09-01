@@ -4,7 +4,7 @@ module "jmeter_master" {
   instance_count = 1
 
   name                        = "jmeter-master"
-  key_name                    = aws_key_pair.this.id
+  key_name                    = aws_key_pair.this.key_name
   ami                         = var.ami
   instance_type               = var.instance_type
   subnet_id                   = var.subnet_id
@@ -33,7 +33,7 @@ module "jmeter_slave" {
   instance_count = var.slaves_instance_count
 
   name                        = "jmeter-slave"
-  key_name                    = aws_key_pair.this.id
+  key_name                    = aws_key_pair.this.key_name
   ami                         = var.ami
   instance_type               = var.instance_type
   subnet_id                   = var.subnet_id

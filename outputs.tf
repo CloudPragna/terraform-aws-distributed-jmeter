@@ -10,5 +10,10 @@ output "public_key" {
 
 output "master_ip" {
   description = "Jmeter Master IP addr"
-  value       = jmeter_master.public_ip
+  value       = module.jmeter_master.public_ip
+}
+
+output "slave_ips" {
+  description = "Jmeter Slave IP addrs"
+  value       = module.jmeter_slave.private_ip
 }

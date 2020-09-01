@@ -1,3 +1,8 @@
+variable "name" {
+  description = "description"
+  default     = "default"
+}
+
 variable "vpc_id" {
   type        = string
   description = "VPC ID"
@@ -8,10 +13,10 @@ variable "cidr_blocks" {
   description = "VPC CIDR"
 }
 
-variable "key_name" {
-  type        = string
-  description = "Key Name"
-}
+# variable "key_name" {
+#   type        = string
+#   description = "Key Name"
+# }
 
 variable "ami" {
   type        = string
