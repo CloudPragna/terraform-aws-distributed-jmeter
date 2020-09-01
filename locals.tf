@@ -8,6 +8,8 @@ wget https://mirrors.estointernet.in/apache//jmeter/binaries/apache-jmeter-5.3.z
 unzip apache-jmeter-5.3.zip
 rm -rf apache-jmeter-5.3.zip
 mv apache-jmeter-5.3 /var/lib/apache-jmeter-5.3
+systemctl enable nginx
+systemctl start nginx
 EOF
   slave_user_data  = <<EOF
 #!/bin/bash
