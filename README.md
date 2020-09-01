@@ -1,4 +1,5 @@
-# Terraform module for Jmeter Load testing(Amazon Linux-2)
+![Static security analysis for Terraform code](https://github.com/foss-cafe/aws-distributed-jmeter/workflows/Static%20security%20analysis%20for%20Terraform%20code/badge.svg)
+# AWS Terraform module for Jmeter Load testing(Amazon Linux-2)
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
