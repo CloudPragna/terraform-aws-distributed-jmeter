@@ -13,11 +13,6 @@ variable "cidr_blocks" {
   description = "VPC CIDR"
 }
 
-# variable "key_name" {
-#   type        = string
-#   description = "Key Name"
-# }
-
 variable "ami" {
   type        = string
   description = "AMI image for Jmeter"
@@ -33,9 +28,23 @@ variable "subnet_id" {
   description = "Subnet IDs"
 }
 
+variable "subnet_ids" {
+  description = "A list of VPC Subnet IDs to launch in"
+  type        = list(string)
+  default     = []
+}
 
 variable "slaves_instance_count" {
   type        = number
   description = "Slave count"
   default     = 1
+}
+
+
+variable "source_jmx" {
+  type        = list
+  description = "description"
+  default = [
+
+  ]
 }

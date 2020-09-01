@@ -27,13 +27,16 @@ module "ec2_cluster" {
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| terraform | ~> 0.12.24 |
+| aws | ~> 2.60 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| aws | n/a |
+| aws | ~> 2.60 |
 
 ## Inputs
 

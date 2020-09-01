@@ -3,11 +3,12 @@ module "jmeter_master" {
 
   instance_count = 1
 
-  name                        = "jmeter-master"
+  name                        = "${var.name}-master"
   key_name                    = aws_key_pair.this.key_name
   ami                         = var.ami
   instance_type               = var.instance_type
   subnet_id                   = var.subnet_id
+  subnet_ids                  = var.subnet_ids
   vpc_security_group_ids      = [aws_security_group.jmeter.id]
   associate_public_ip_address = true
 
@@ -32,11 +33,12 @@ module "jmeter_slave" {
 
   instance_count = var.slaves_instance_count
 
-  name                        = "jmeter-slave"
+  name                        = "${var.name}-slave"
   key_name                    = aws_key_pair.this.key_name
   ami                         = var.ami
   instance_type               = var.instance_type
   subnet_id                   = var.subnet_id
+  subnet_ids                  = var.subnet_ids
   vpc_security_group_ids      = [aws_security_group.jmeter.id]
   associate_public_ip_address = true
 
@@ -52,4 +54,13 @@ module "jmeter_slave" {
   tags = {
     "Role" = "Slave"
   }
+}
+
+
+module "load_test" {
+  source      = "./modules/load-test"
+  source_jmx  = var.source_jmx
+  host        = module.jmeter_master.master_ip[0]
+  private_key = tls_private_key.this.private_key_pem
+  slave_ips   = join(",", module.jmeter_slave.slave_ips)
 }

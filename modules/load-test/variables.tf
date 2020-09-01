@@ -1,7 +1,7 @@
 variable "source_jmx" {
   type        = list
   description = "description"
-  default     = [
+  default = [
 
   ]
 }

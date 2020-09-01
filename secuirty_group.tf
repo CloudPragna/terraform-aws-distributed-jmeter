@@ -1,5 +1,5 @@
 resource "aws_security_group" "jmeter" {
-  name        = "jmeter-sg"
+  name        = "${var.name}-sg"
   description = "Allow inbound traffic for Jmeter"
   vpc_id      = var.vpc_id
 
@@ -23,11 +23,11 @@ resource "aws_security_group" "jmeter" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["${chomp(data.http.myip.body)}/32"]
   }
 
   ingress {
-    description = "port 22"
+    description = "port 80"
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
@@ -50,6 +50,6 @@ resource "aws_security_group" "jmeter" {
   }
 
   tags = {
-    Name = "jmeter-sg"
+    Name = "${var.name}-sg"
   }
 }
