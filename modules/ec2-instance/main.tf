@@ -4,7 +4,7 @@ locals {
 
 resource "aws_instance" "this" {
   count = var.instance_count
-
+  # checkov:skip=CKV_AWS_79: This is new feature needed testing
   ami              = var.ami
   instance_type    = var.instance_type
   user_data        = var.user_data
